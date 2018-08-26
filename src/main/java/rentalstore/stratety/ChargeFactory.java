@@ -9,14 +9,32 @@ import rentalstore.Rental;
  */
 public class ChargeFactory {
 
-    public double clacChargeFactory(Rental rental) {
+    public static double clacChargeFactory(Rental rental) {
+        int dayRented = rental.getDayRented();
         switch (rental.getMovie().getPriceCode()) {
             case Movie.REGULAR:
-                return new RegularCharge().calc(rental.getDayRented());
+                return new RegularCharge().calc(dayRented);
             case Movie.NEW_RELEASE:
-                return new NewReleaseCharge().calc(rental.getDayRented());
+                return new NewReleaseCharge().calc(dayRented);
             case Movie.CHILDRENS:
-                return new ChildrensCharge().calc(rental.getDayRented());
+                return new ChildrensCharge().calc(dayRented);
+            case Movie.ARTFILMS:
+                return new ArtFilmsCharge().calc(dayRented);
+            default:
+                return 0;
+        }
+    }
+
+    public static double clacRentalPointsFactory(Rental rental) {
+        switch (rental.getMovie().getPriceCode()) {
+            case Movie.REGULAR:
+                return new RegularCharge().rentalPoints(rental);
+            case Movie.NEW_RELEASE:
+                return new NewReleaseCharge().rentalPoints(rental);
+            case Movie.CHILDRENS:
+                return new ChildrensCharge().rentalPoints(rental);
+            case Movie.ARTFILMS:
+                return new ArtFilmsCharge().rentalPoints(rental);
             default:
                 return 0;
         }

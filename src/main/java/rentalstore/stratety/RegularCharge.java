@@ -1,5 +1,7 @@
 package rentalstore.stratety;
 
+import rentalstore.Rental;
+
 /**
  * Create by Vic Xu on 2018/8/26
  */
@@ -11,5 +13,9 @@ public class RegularCharge implements AmountStrategy {
             thisAmount += (dayRented - 2) * 1.5;
         }
         return thisAmount;
+    }
+
+    public double rentalPoints(Rental rental) {
+        return 1;
     }
 }

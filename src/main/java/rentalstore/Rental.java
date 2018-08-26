@@ -1,9 +1,6 @@
 package rentalstore;
 
 import rentalstore.stratety.ChargeFactory;
-import rentalstore.stratety.ChildrensCharge;
-import rentalstore.stratety.NewReleaseCharge;
-import rentalstore.stratety.RegularCharge;
 
 public class Rental {
     private Movie movie;
@@ -23,15 +20,10 @@ public class Rental {
     }
 
     double getAmount() {
-        ChargeFactory factory = new ChargeFactory();
-        return factory.clacChargeFactory(this);
+        return ChargeFactory.clacChargeFactory(this);
     }
 
-    int getFrequentRentalPoints() {
-        if ((this.getMovie().getPriceCode() == Movie.NEW_RELEASE) && this.getDayRented() > 1) {
-            return 2;
-        } else {
-            return 1;
-        }
+    double getFrequentRentalPoints() {
+        return ChargeFactory.clacRentalPointsFactory(this);
     }
 }
