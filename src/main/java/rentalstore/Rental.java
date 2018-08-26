@@ -1,23 +1,23 @@
 package rentalstore;
 
-public class Rental {
+class Rental {
     private Movie movie;
     private int dayRented;
 
-    public Rental(Movie movie, int dayRented) {
+    Rental(Movie movie, int dayRented) {
         this.movie = movie;
         this.dayRented = dayRented;
     }
 
-    public Movie getMovie() {
+    Movie getMovie() {
         return movie;
     }
 
-    public int getDayRented() {
+    int getDayRented() {
         return dayRented;
     }
 
-    protected double getAmount() {
+    double getAmount() {
         double thisAmount = 0;
         switch (this.getMovie().getPriceCode()) {
             case Movie.REGULAR:
@@ -37,5 +37,13 @@ public class Rental {
                 break;
         }
         return thisAmount;
+    }
+
+    int getFrequentRentalPoints() {
+        if ((this.getMovie().getPriceCode() == Movie.NEW_RELEASE) && this.getDayRented() > 1) {
+            return 2;
+        } else {
+            return 1;
+        }
     }
 }
