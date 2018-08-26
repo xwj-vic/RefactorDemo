@@ -14,7 +14,7 @@ public class CustomerTest {
     @Test
     public void should_return_rental_statement_customer_has_no_rentall() {
         String statement = customer.statement();
-        assertEquals("Rental Record for Vic\nAmount owed is0.0\nYou earned0 frequent renter points",statement);
+        assertEquals("Rental Record for Vic\nAmount owed is0.0\nYou earned0.0 frequent renter points",statement);
     }
 
     @Test
@@ -26,7 +26,7 @@ public class CustomerTest {
         assertEquals("Rental Record for Vic\n" +
                 "\t" + regularMovie.getTitle() + "\t2.0\n" +
                 "Amount owed is2.0\n" +
-                "You earned1 frequent renter points", statement);
+                "You earned1.0 frequent renter points", statement);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class CustomerTest {
         assertEquals("Rental Record for Vic\n" +
                 "\t" + regularMovie.getTitle() + "\t3.5\n" +
                 "Amount owed is3.5\n" +
-                "You earned1 frequent renter points", statement);
+                "You earned1.0 frequent renter points", statement);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class CustomerTest {
         assertEquals("Rental Record for Vic\n" +
                 "\t" + newReleaseMovie.getTitle() + "\t3.0\n" +
                 "Amount owed is3.0\n" +
-                "You earned1 frequent renter points", statement);
+                "You earned1.0 frequent renter points", statement);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class CustomerTest {
         assertEquals("Rental Record for Vic\n" +
                 "\t" + newReleaseMovie.getTitle() + "\t6.0\n" +
                 "Amount owed is6.0\n" +
-                "You earned2 frequent renter points", statement);
+                "You earned2.0 frequent renter points", statement);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class CustomerTest {
         assertEquals("Rental Record for Vic\n" +
                 "\t" + childrenMovie.getTitle() + "\t1.5\n" +
                 "Amount owed is1.5\n" +
-                "You earned1 frequent renter points", statement);
+                "You earned1.0 frequent renter points", statement);
     }
 
     @Test
@@ -96,7 +96,7 @@ public class CustomerTest {
         assertEquals("Rental Record for Vic\n" +
                 "\t" + childrenMovie.getTitle() + "\t3.0\n" +
                 "Amount owed is3.0\n" +
-                "You earned1 frequent renter points", statement);
+                "You earned1.0 frequent renter points", statement);
     }
 
     @Test
@@ -108,7 +108,7 @@ public class CustomerTest {
         assertEquals("<H1>Rentals for <EM>Vic</EM></H1><P>\n" +
                 "Titanic: 3.0<BR>\n" +
                 "<P>You owe<EM>3.0</EM><P>\n" +
-                "On this rental you earned <EM>1</EM> frequent renter points<P>", statement);
+                "On this rental you earned <EM>1.0</EM> frequent renter points<P>", statement);
     }
 
     @Test
